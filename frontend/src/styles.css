@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Geist+Mono:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* Shared Tailwind theme tokens used by utility classes in JSX. */
+@theme {
+  --color-canvas: #f5f5f3;
+  --color-ink: #161616;
+  --color-muted: #6b6b6b;
+  --color-line: #deded8;
+  --font-serif: "Manrope";
+  --font-mono: "Geist Mono", monospace;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    background: var(--color-canvas);
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-mono);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+}
+
+@layer utilities {
+  /* Typography helpers used across page components. */
+  .font-serif-ui {
+    font-family: var(--font-serif);
+  }
+
+  .font-mono-ui {
+    font-family: var(--font-mono);
+  }
+
+  .card-shadow {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.45s ease-out both;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
